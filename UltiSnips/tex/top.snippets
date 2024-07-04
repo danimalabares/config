@@ -1,0 +1,133 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+endglobal
+
+
+snippet lesh "long exact seq homotopy"
+\begin{tikzcd}[column sep=small]
+		\cdots\arrow[r]&\pi_i($1)\arrow[r]&\pi_i($2)\arrow[r]&\pi_i($3)\arrow[r]&\pi_{i-1}($4)\arrow[r]&\pi_{i-1}($5)\arrow[r]&\cdots
+	\end{tikzcd}$0
+endsnippet
+
+snippet sesh "short exact seq homotopy"
+\[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&\pi_i($1)\arrow[r]&\pi_i($2)\arrow[r]&\pi_i($3)\arrow[r]&0
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet sq "square"
+\[\begin{tikzcd}
+	$1\arrow[r]\arrow[d]&$2\arrow[d]\\
+	$3\arrow[r]&$4
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet Sq "square labeled"
+\[\begin{tikzcd}
+	$1\arrow[r,"$2"]\arrow[d,"$3"]&$4\arrow[d,"$5"]\\
+	$6\arrow[r,"$7"]&$8
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet trtz "triangle tikz"
+\[\begin{tikzcd}
+	$1\arrow[r]\arrow[dr]&&$2\arrow[dl]\\
+	&$3
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet chainc1 "chain complex1"
+\[\begin{tikzcd}[column sep=small]
+	$1^{$2}\arrow[r,"$3"]&$4^{$5}\arrow[r,"$5"]&\cdots
+\end{tikzcd}\]
+endsnippet
+
+snippet sel "short exact labeled"
+\[\begin{tikzcd}
+	0\arrow[r]&$1\arrow[r,"$2"]&$3\arrow[r,"$4"]&$5\arrow[r]&0
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet ses "short exact sequence"
+\[\begin{tikzcd}
+	0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet les "long exact sequence"
+\[\begin{tikzcd}[column sep=small]
+	\cdots\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&$4\arrow[r]&$5\arrow[r]&\cdots
+\end{tikzcd}\]
+endsnippet
+
+snippet lesc "long exact sequence cohomology"
+\[\begin{tikzcd}
+	\cdots\arrow[r]&H^{$1}($2)\arrow[r]&H^{$3}($4)\arrow[r]&H^{$5}($6)\arrow[r]&H^{$7}($8)\arrow[r]&\cdots
+\end{tikzcd}\]
+$0
+endsnippet
+
+context "math()"
+snippet ar "arrow" iA
+\arrow[$1]$0
+endsnippet
+
+context "math()"
+snippet aR "arrow and ampersand" iA
+\arrow[$1]&$0
+endsnippet
+
+context "math()"
+snippet Ar "named arrow" iA
+\arrow[$1,"$2"]$0
+endsnippet
+
+snippet postnikov "postnikov tower"
+\[\begin{tikzcd}
+	&\cdots\arrow[d]\\
+	&X_2\arrow[d]\\
+	&X_1\arrow[d]\\
+	X\arrow[uur]\arrow[ur]\arrow[r]&X_0
+\end{tikzcd}\]
+endsnippet
+
+context "math()"
+snippet rs "row sep" iA
+row sep=$1
+endsnippet
+
+snippet tk "tikzdiagram" bA
+\[\begin{tikzcd}
+	$1
+\end{tikzcd}\]
+$0
+endsnippet
+
+context "math()"
+snippet cd "cdots" iA
+\cdots 
+endsnippet
+
+snippet pk "pullback" i
+\[\begin{tikzcd}
+	$1\arrow[r]\arrow[d]\arrow[dr,phantom,very near start,"\lrcorner"]&$2\arrow[d]\\
+	$3\arrow[r]&$4
+\end{tikzcd}\]
+$0
+endsnippet
+

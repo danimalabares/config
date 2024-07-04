@@ -1,0 +1,140 @@
+global !p
+def math():
+        return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+        return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+        [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')")
+        return x != '0' and y != '0'
+
+endglobal
+
+
+snippet \img "image" iA
+\operatorname{img}
+endsnippet
+
+snippet \id "id"
+\operatorname{id}
+endsnippet
+
+snippet \Id "Id" iA
+\operatorname{Id}
+endsnippet
+
+snippet \ev "ev" iA
+\operatorname{ev}
+endsnippet
+
+snippet \rk "rk" iA
+\operatorname{rk}
+endsnippet
+
+snippet \SL "SL" iA
+\operatorname{SL}
+endsnippet
+
+snippet \Sp "Sp"
+\operatorname{Sp}
+endsnippet
+
+snippet \SL "SU" iA
+\operatorname{SU}
+endsnippet
+
+snippet \GL "GL" iA
+\operatorname{GL}
+endsnippet
+
+snippet \O "O"
+\operatorname{O}
+endsnippet
+
+snippet \PGL "PGL" iA
+\operatorname{PGL}
+endsnippet
+
+snippet \PSL "PSL" iA
+\operatorname{PSL}
+endsnippet
+
+snippet \Aut "" iA
+\operatorname{Aut}
+endsnippet
+
+snippet \Pic "" iA
+\operatorname{Pic}
+endsnippet
+
+snippet \Alb "" iA
+\operatorname{Alb}
+endsnippet
+
+snippet \M "" iA
+\operatorname{M}
+endsnippet
+
+snippet \Top "" iA
+\operatorname{Top}
+endsnippet
+
+snippet \Map "" iA
+\operatorname{Map}
+endsnippet
+
+snippet \Obj "" iA
+\operatorname{Obj}
+endsnippet
+
+snippet \Tot "" iA
+\operatorname{Tot}
+endsnippet
+
+snippet \Ob "" iA
+\operatorname{Ob}
+endsnippet
+
+snippet \colim "" iA
+\operatorname{colim}
+endsnippet
+
+snippet \Nat "" iA
+\operatorname{Nat}
+endsnippet
+
+snippet \rel "" iA
+\operatorname{rel}
+endsnippet
+
+snippet \Funct "" iA
+\operatorname{Funct}
+endsnippet
+
+snippet \hofib "" iA
+\operatorname{hofib}
+endsnippet
+
+snippet \hocofib "" iA
+\operatorname{hocofib}
+endsnippet
+
+snippet \Spec "" iA
+\operatorname{Spec}
+endsnippet
+
+snippet Ext "Ext" iA
+\opertatorame{Ext}
+endsnippet
+
+context "math()"
+snippet Tor "Tor" iA
+\opertatorame{Tor}
+endsnippet
+
+context "math()"
+snippet Hom "Hom" iA
+\opertatorame{Hom}
+endsnippet
+
