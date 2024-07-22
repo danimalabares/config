@@ -13,6 +13,14 @@ $4
 $0
 endsnippet
 
+snippet tx "text snippets" bA
+context "tx()"
+`!p snip.rv = "snippet"` ${1:trigger} "${2:Description}" ${3:options}
+$4
+`!p snip.rv = "endsnippet"`
+$0
+endsnippet
+
 snippet osn "math snippets" bA
 context "math()"
 `!p snip.rv = "snippet"` ${1:trigger} "$1" iA
@@ -20,9 +28,6 @@ context "math()"
 `!p snip.rv = "endsnippet"`
 $0
 endsnippet
-
-
-
 
 snippet sss "math snippets" bA
 `!p snip.rv = "snippet"` ${1:trigger} "${2:Description}" ${3:options}
@@ -40,3 +45,11 @@ snippet oper "operator" iA
 \opertatorame{$1}$0
 endsnippet
 
+snippet end "smart ending" i
+`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet

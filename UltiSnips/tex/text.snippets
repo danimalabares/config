@@ -1,3 +1,20 @@
+global !p
+def tx():
+      return vim.eval('vimtex#syntax#in_mathzone()') == '0'
+endglobal
+
+snippet preamble "preamble" i
+\include{/Users/daniel/github/config/preamble.sty}
+\include{/Users/daniel/github/config/thms.sty}
+\include{/Users/daniel/github/config/ops.sty}
+endsnippet
+
+snippet center "center" i
+\begin{center}
+	$1
+\end{center}$0
+endsnippet
+
 snippet beg "begin{} / end{}" 
 \begin{$1}
 	$0
@@ -6,123 +23,159 @@ endsnippet
 
 priority 1
 snippet thm "theorem" bA
-\begin{thm}[$1]
-	$2
+\begin{thm}
+	$1
 \end{thm}
-$3
 endsnippet
 
-snippet prop "proposition" bA
+snippet Thm "theorem" bA
+\begin{thm}[$1]\leavevmode
+	$2
+\end{thm}
+endsnippet
+
+snippet Prop "proposition" bA
 \begin{prop}[$1]
 	$2
 \end{prop}
-$3
+endsnippet
+
+snippet prop "proposition" bA
+\begin{prop}
+	$1
+\end{prop}
+endsnippet
+
+snippet Defn "" bA
+\begin{defn}[$1]
+	$2
+\end{defn}$0
 endsnippet
 
 snippet defn "" bA
-\begin{defn}[$1]
-	$2
-\end{defn}
-$3
+\begin{defn}
+	$1
+\end{defn}$0
 endsnippet
 
-
 snippet lem "" bA
-\begin{lemma}[$1]
-	$2
-\en{lemma}
-$3
+\begin{lemma}
+	$1
+\end{lemma}$0
 endsnippet
 
 snippet qst "" bA
-\begin{question}[$1]
-	$2
-\end{question}
-$3
+\begin{question}
+	$1
+\end{question}$0
 endsnippet
 
 snippet cl "" bA
 \begin{claim}
 	$1
-\end{claim}
-$2
+\end{claim}$0
 endsnippet
 
 snippet coro "" bA
-\begin{coro}[$1]
-	$2
-\end{coro}
-$3
+\begin{coro}
+	$1
+\end{coro}$0
 endsnippet
 
-snippet exmp "" bA
+snippet Exa "" bA
 \begin{example}[$1]
 	$2
-\end{example}
-$3
+\end{example}$0
+endsnippet
+
+snippet exa "" bA
+\begin{example}
+	$1
+\end{example}$0
+endsnippet
+
+snippet upshot "theorem" bA
+\begin{upshot}
+	$1
+\end{upshot}
+endsnippet
+
+snippet Exer "" bA
+\begin{exercise}[$1]
+	$2
+\end{exercise}$0
 endsnippet
 
 snippet exer "" bA
-\begin{exercise}[$1]
+\begin{exercise}
+	$1
+\end{exercise}$0
+endsnippet
+
+snippet mex "manual numbering exercise" bA
+\begin{manualexercise}{${1:number}}
 	$2
-\end{exercise}
-$3
+\end{manualexercise}$0
+endsnippet
+
+snippet mdef "manualdef" bA
+\begin{manualdef}{${1:number}}
+	$2
+\end{manualdef}$0
 endsnippet
 
 snippet conj "" bA
 \begin{conjecture}[$1]
 	$2
-\end{conjecture}
-$0
+\end{conjecture}$0
 endsnippet
 
 snippet pf "" bA
-\begin{proof}
+\begin{proof}[Demostraci\'on]
 	$1
-\end{proof}
-$2
+\end{proof}$0
 endsnippet
 
 snippet sol "" bA
 \begin{proof}[Solution]
 	$1
-\end{proof}
-$2
+\end{proof}$0
 endsnippet
 
 snippet Pf "" bA
 \begin{proof}[$1]
 $2
-\end{proof}
-$3
+\end{proof}$0
 endsnippet
 
 snippet ali "align" bA
 \begin{align*}
 	$1
-\end{align*}
-$0
+\end{align*}$0
 endsnippet
 
 snippet eq "equation" bA
 \begin{equation*}
 	$1
-\end{equation*}
-$0
+\end{equation*}$0
 endsnippet
 
 snippet Eq "equation" bA
 \begin{equation}\label{eq:$1}
 	$2
-\end{equation}
-$0
+\end{equation}$0
+endsnippet
+
+snippet Rk "remark" bA
+\begin{remark}[$1]\leavevmode
+	$2
+\end{remark}$0
 endsnippet
 
 snippet rk "remark" bA
 \begin{remark}
 	$1
-\end{remark}
-$0
+\end{remark}$0
 endsnippet
 
 snippet pgp
@@ -166,35 +219,45 @@ snippet enum "Enumerate" bA
 \begin{enumerate}
 	\item $1
 \end{enumerate}
-$0
 endsnippet
 
-snippet Enum "Enumerate using letters" bA
+snippet aenum "Enumerate using letters" bA
 \begin{enumerate}[label=\alph*.]
 	\item $1
 \end{enumerate}
-$0
+endsnippet
+
+
+snippet ienum "Enumerate using i,ii,iii..." bA
+\begin{enumerate}[label=(\roman*)]
+	\item $1
+\end{enumerate}
+endsnippet
+
+snippet nenum "Enumerate start at *" bA
+\begin{enumerate}[($1)]\setcounter{enumi}{${2:one before}}
+	\item $2
+\end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
 	\item $1
 \end{itemize}
-$0
 endsnippet
 
 snippet sec "section" bA
-\section{$1}\label{sec:$1}
+\section{$1}
 $0
 endsnippet
 
 snippet ssec "subsection" bA
-\subsection{$1}\label{ssec:$1}
+\subsection{$1}
 $0
 endsnippet
 
-snippet sssec "subsubsection" bA
-\subsubsection{$1}\label{sssec:$1}
+snippet seec "subsubsection" bA
+\subsubsection{$1}
 $0
 endsnippet
 
@@ -262,6 +325,15 @@ snippet 'a "a" iA
 \'a
 endsnippet
 
+snippet 'o "o" iA
+\'o
+endsnippet
+
+snippet 'u "u" iA
+\'u
+endsnippet
+
+
 snippet ~a "a" iA
 \~a
 endsnippet
@@ -302,12 +374,32 @@ snippet col "color" i
 {\color{$1}$2}$3
 endsnippet
 
-snippet blue "blue" 
+snippet blue "blue" i
 {\color{blue}$1}$0
 endsnippet
 
-snippet magenta "magenta" i
+snippet orng "orange" iA
+{\color{orange}$1}$0
+endsnippet
+
+snippet persi "persimon" iA
+{\color{persimmon}$1}$0
+endsnippet
+
+snippet lvmg "lavendermgn" iA
+{\color{lavendermagenta}$1}$0
+endsnippet
+
+snippet blv "blue-violet" iA
+{\color{blue-violet}$1}$0
+endsnippet
+
+snippet mgn "magenta" iA
 {\color{magenta}$1}$0
+endsnippet
+
+snippet cyan "cyan" iA
+{\color{cyan}$1}$0
 endsnippet
 
 snippet dbar "dbar" iA
@@ -330,10 +422,6 @@ snippet math "MathdaniBooks" i
 ~/daniDrive/Otros/daniBooks/Mathematics/
 endsnippet
 
-snippet Hur "Hurewicz" iA
-Hurewicz
-endsnippet
-
 snippet nnn "n" iA
 $n$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
@@ -350,5 +438,68 @@ if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 else:
      snip.rv = ''
 `$2
+endsnippet
+
+snippet nth "nth" iA
+$n$-th
+endsnippet
+
+#attempt
+#snippet '([A-Za-z])([A-Za-z])' "Description" options
+#$([A-Za-z])([A-Za-z])
+#endsnippet
+
+
+#Something that maps any letter twice to $theletter$
+#context "tx()"
+#snippet '([A-Za-z])()' "auto superscript" wrA
+#`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`$1}$0
+#endsnippet
+
+snippet iff "iff" iA
+if and only if 
+endsnippet
+
+snippet sii "sii" iA
+si y s\'olo si`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+
+snippet Freuden "Freudenthal" iA
+Freudenthal 
+endsnippet
+
+snippet \if "iffase" iA
+\iffalse
+endsnippet
+
+snippet txt "texttt" iA
+\texttt{$1}$0
+
+endsnippet
+
+context "tx()"
+snippet Cn "complex" iA
+$\mathbb{C}^{$1}$
+endsnippet
+
+context "tx()"
+snippet CC "complex" iA
+$\mathbb{C}$
+endsnippet
+
+context "tx()"
+snippet Rn "real" iA
+$\mathbb{R}^{$1}$
+endsnippet
+
+context "tx()"
+snippet ppi "mapping" iA
+pping
 endsnippet
 

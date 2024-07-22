@@ -1,0 +1,511 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+def tx():
+      return vim.eval('vimtex#syntax#in_mathzone()') == '0'
+endglobal
+
+snippet AA "A" iA
+$A$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet BB "B" iA
+$B$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet CC "C" iA
+$C$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet DD "D" iA
+$D$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet DD "D" iA
+$D$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet EE "E" iA
+$E$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet FF "F" iA
+$F$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet GG "G" iA
+$G$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet HH "H" iA
+$H$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet II "I" iA
+$I$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet JJ "J" iA
+$J$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet KK "K" iA
+$K$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet LL "L" iA
+$L$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet MM "M" iA
+$N$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet OO "O" iA
+$O$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet PP "P" iA
+$P$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet QQ "Q" iA
+$Q$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet RR "R" iA
+$R$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet SS "S" iA
+$S$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet TT "T" iA
+$T$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet UU "U" iA
+$U$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet VV "V" iA
+$V$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet WW "W" iA
+$W$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet XX "X" iA
+$X$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet YY "Y" iA
+$Y$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ZZ "Z" iA
+$Z$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet aaa "A" iA
+$a$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet bbb "A" iA
+$b$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ccc "c" iA
+$c$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ddd "a" iA
+$d$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet eee "A" iA
+$e$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ddd "d" iA
+$d$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet eee "e" iA
+$e$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet fff "f" iA
+$f$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ggg "g" iA
+$g$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet hhh "h" iA
+$h$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet iii "i" iA
+$i$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet jjj "j" iA
+$j$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet kkk "k" iA
+$k$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "tx()"
+snippet lll "l" iA
+$\ell$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet mmm "m" iA
+$m$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet nnn "n" iA
+$n$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ooo "o" iA
+$o$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ppp "p" iA
+$p$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet qqq "q" iA
+$q$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet rrr "r" iA
+$r$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet sss "s" iA
+$s$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet ttt "t" iA
+$t$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet uuu "u" iA
+$u$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet vvv "v" iA
+$v$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet www "w" iA
+$w$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet xxx "x" iA
+$x$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet yyy "y" iA
+$y$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet zzz "z" iA
+$z$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+snippet NN "NN" iA
+$N$`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$1
+endsnippet
+
