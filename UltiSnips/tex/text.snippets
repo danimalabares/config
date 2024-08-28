@@ -25,25 +25,25 @@ priority 1
 snippet thm "theorem" bA
 \begin{thm}
 	$1
-\end{thm}
+\end{thm}$0
 endsnippet
 
 snippet Thm "theorem" bA
 \begin{thm}[$1]\leavevmode
 	$2
-\end{thm}
+\end{thm}$0
 endsnippet
 
 snippet Prop "proposition" bA
 \begin{prop}[$1]
 	$2
-\end{prop}
+\end{prop}$0
 endsnippet
 
 snippet prop "proposition" bA
 \begin{prop}
 	$1
-\end{prop}
+\end{prop}$0
 endsnippet
 
 snippet Defn "" bA
@@ -97,7 +97,7 @@ endsnippet
 snippet upshot "theorem" bA
 \begin{upshot}
 	$1
-\end{upshot}
+\end{upshot}$0
 endsnippet
 
 snippet Exer "" bA
@@ -131,13 +131,13 @@ snippet conj "" bA
 endsnippet
 
 snippet pf "" bA
-\begin{proof}[Demostraci\'on]
+\begin{proof}[Demostra\c c\~ao]
 	$1
 \end{proof}$0
 endsnippet
 
 snippet sol "" bA
-\begin{proof}[Solution]
+\begin{proof}[Solution]\leavevmode
 	$1
 \end{proof}$0
 endsnippet
@@ -152,6 +152,15 @@ snippet ali "align" bA
 \begin{align*}
 	$1
 \end{align*}$0
+endsnippet
+
+context "tx()"
+snippet bali "begin align" bA
+\begin{align*}
+endsnippet
+
+snippet eali "end align" bA
+\end{align*}
 endsnippet
 
 snippet eq "equation" bA
@@ -182,13 +191,36 @@ snippet pgp
 \paragraph{$1} $2
 endsnippet
 
+priority 3
 snippet bi "bold-italic" w
 \textit{\textbf{${1}}}`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ',':',')']:
      snip.rv = ' '
 else:
      snip.rv = ''
 `$2
+endsnippet
+
+priority 1
+context "tx()"
+snippet b "bold" i
+\textbf{$1}`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+priority 1
+context "tx()"
+snippet i "italic" i
+\textit{$1}`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 snippet hr
@@ -198,14 +230,6 @@ endsnippet
 snippet cite
 \cite{$1}$2
 endsnippet
-snippet b
-\textbf{$1}$2
-endsnippet
-
-snippet i
-\textit{$1}$2
-endsnippet
-
 
 #snippet @ "exponent" iA
 #^
@@ -237,6 +261,12 @@ endsnippet
 snippet nenum "Enumerate start at *" bA
 \begin{enumerate}[($1)]\setcounter{enumi}{${2:one before}}
 	\item $2
+\end{enumerate}
+endsnippet
+
+snippet step "steps" bA
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+	\item $1
 \end{enumerate}
 endsnippet
 
@@ -313,24 +343,39 @@ snippet ka "Kahler"
 K\"ahler
 endsnippet
 
+context "tx()"
 snippet 'i "i" iA
 \'i
 endsnippet
 
+context "tx()"
 snippet 'e "e" iA
 \'e
 endsnippet
 
+context "tx()"
 snippet 'a "a" iA
 \'a
 endsnippet
 
+context "tx()"
 snippet 'o "o" iA
 \'o
 endsnippet
 
+context "tx()"
 snippet 'u "u" iA
 \'u
+endsnippet
+
+context "tx()"
+snippet 'A "A" iA
+\'A
+endsnippet
+
+context "tx()"
+snippet 'E "E" iA
+\'E
 endsnippet
 
 
@@ -456,7 +501,7 @@ endsnippet
 #`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`$1}$0
 #endsnippet
 
-snippet iff "iff" iA
+snippet iff "iff" i
 if and only if 
 endsnippet
 
@@ -468,7 +513,6 @@ else:
      snip.rv = ''
 `$2
 endsnippet
-
 
 snippet Freuden "Freudenthal" iA
 Freudenthal 
@@ -501,5 +545,65 @@ endsnippet
 context "tx()"
 snippet ppi "mapping" iA
 pping
+endsnippet
+
+context "tx()"
+snippet \c "c with hook" iA
+\c c
+endsnippet
+
+context "tx()"
+snippet ^a "hat" iA
+\^a
+endsnippet
+
+context "tx()"
+snippet ^o "hat" iA
+\^o
+endsnippet
+
+context "tx()"
+snippet ^e "hat" iA
+\^e
+endsnippet
+
+context "tx()"
+snippet …a "atilde" iA
+\~a
+endsnippet
+
+context "tx()"
+snippet …o "otilde" iA
+\~o
+endsnippet
+
+context "tx()"
+snippet ~o "otilde" iA
+\~o
+endsnippet
+
+context "tx()"
+snippet cao "cao" iA 
+\c c\~ao`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$1
+endsnippet
+
+context "tx()"
+snippet coes "coes" iA
+\c c\~oes`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+context "tx()"
+snippet `a "a" iA
+\`a
 endsnippet
 

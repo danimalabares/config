@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[left=4cm, right=4cm]{geometry}
+\usepackage{palatino,eulervm,dutchcal,xcolor}
+\usepackage{graphicx,subcaption,float}
+\usepackage{enumitem,parskip,multicol,array}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{amsthm,amssymb,amsmath,mathtools,thmtools,tikz,tikz-cd}
+\usetikzlibrary{matrix,calc,arrows,shapes,decorations.markings,backgrounds,calc,intersections,decorations.pathmorphing}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},cells={nodes={scale=#1}}}}
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=magenta,citecolor=blue,filecolor=blue,urlbordercolor=white,linkbordercolor=white,citebordercolor=white,filebordercolor=white}
+\usepackage{cleveref}
+
+\usepackage{mathabx,graphicx}
+\def\Circlearrowleft{\ensuremath{%
+  \rotatebox[origin=c]{180}{$\circlearrowleft$}}}
+\def\Circlearrowright{\ensuremath{%
+  \rotatebox[origin=c]{180}{$\circlearrowright$}}}
+
+%\usepackage[citestyle=authortitle-terse,backref,backend=bibtex]{biblatex}
+%\addbibresource{homotopy-theory.bib}
+
+\renewcommand*{\proofname}{Demostra\c c\~ao}
+
+%Manual numbering environments
+\newtheorem{manualdefinner}{Definition}
+\newenvironment{manualdef}[1]{%
+  \renewcommand\themanualdefinner{#1}%
+  \manualdefinner
+}{\endmanualdefinner}
+
+\newtheorem{manualexerciseinner}{Exercise}
+\newenvironment{manualexercise}[1]{%
+  \renewcommand\themanualexerciseinner{#1}%
+  \manualexerciseinner
+}{\endmanualexerciseinner}
+

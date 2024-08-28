@@ -30,7 +30,7 @@ endsnippet
 
 snippet mk "Math" wA
 $${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ',')']:
     snip.rv = ' '
 else:
     snip.rv = ''
@@ -56,27 +56,72 @@ snippet tx "text" iA
 \text{$1} $0
 endsnippet
 
+context "math()"
+snippet see "set" iA
+\\{$1\\}`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction"
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
+priority 1
 context "math()"
 snippet to "to" iA
 \to 
 endsnippet
+
+priority 2
+context "math()"
+snippet lto "longto" iA
+\longrightarrow
+endsnippet
+
 
 context "math()"
 snippet xn "nth variable" iA
 x_n
 endsnippet
 
+#context "math()"
+#snippet '([A-Za-z])!' "autosubscript" wrA
+#_`!p snip.rv = match.group(1)`
+#endsnippet
+
 context "math()"
-snippet '([A-Za-z])(\d)' "auto superscript" wrA
-`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`$1}$0
+snippet '([A-Za-z])J' "autosubscript" wrA
+`!p snip.rv = match.group(1)`_j
 endsnippet
 
-snippet '([A-Za-z])^(\d\d)' "auto superscript2" wrA
-`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`}
+context "math()"
+snippet '([A-Za-z])I' "autosubscript" wrA
+`!p snip.rv = match.group(1)`_i
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])N' "autosubscript" wrA
+`!p snip.rv = match.group(1)`_n
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])K' "autosubscript" wrA
+`!p snip.rv = match.group(1)`_k
+endsnippet
+
+priority 1
+context "math()"
+snippet '([A-Za-z])(\d)' "autosubscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`$0
+endsnippet
+
+snippet '([A-Za-z])^(\d\d)' "autosubscript2" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 endsnippet
 
 snippet '}^(\d\d)' "auto superscript3" wrA
@@ -90,12 +135,7 @@ endsnippet
 
 context "math()"
 snippet @ "superscript" iA
-^{${1}}`!p
-if t[2] and t[2][0] not in [',','(', '.', '_', '?', '-', ' ']:
-     snip.rv = ' '
-else:
-     snip.rv = ''
-`$2
+^{$1}
 endsnippet
 
 context "math()"
@@ -110,17 +150,42 @@ endsnippet
 
 context "math()"
 snippet ker "kernel" iA
-\ker 
+\ker`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
 snippet cok "coker" iA
-\operatorname{coker}
+\operatorname{coker}`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet exp "exponent" iA
+\operatorname{exp}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
 snippet img "image" iA
-\img 
+\operatorname{img}`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 snippet != "equals" iA
@@ -130,11 +195,6 @@ endsnippet
 context "math()"
 snippet π "pi" iA
 \pi
-endsnippet
-
-context "math()"
-snippet (( "parenthesis" iA
-($1)$0
 endsnippet
 
 context "math()"
@@ -168,10 +228,9 @@ snippet bmat "bmat" iA
 endsnippet
 
 context "math()"
-snippet smat "square matrix" iA
-\begin{pmatrix}$1&$2\\$3&$4\end{pmatrix}$0
+snippet sqmat "square matrix" iA
+\begin{pmatrix}$1&$2\\\$3&$4\end{pmatrix}$0
 endsnippet
-
 
 context "math()"
 snippet () "left( right)" iA
@@ -194,8 +253,8 @@ snippet lr{ "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
-snippet lrb "left\{ right\}" iA
-\left\\{ ${1:${VISUAL}} \right\\} $0
+snippet lr| "left| right|" iA
+\left| ${1:${VISUAL}} \right| $0
 endsnippet
 
 snippet lr[ "left[ right]" iA
@@ -243,21 +302,19 @@ snippet part "d/dx" w
 endsnippet
 
 context "math()"
-snippet sq "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} $0
+snippet sqr "\sqrt{}" iA
+\sqrt{$1}`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 context "math()"
 snippet td "to the ... power" iA
 ^{($1)}$0
 endsnippet
-
-priority 1
-context "math()"
-snippet \op "opposite cat" iA
-\opertatorame{op}
-endsnippet
-
 
 context "math()"
 snippet op "operator" iA
@@ -281,11 +338,6 @@ endsnippet
 context "math()"
 snippet fun "function" iA
 $1:$2\to $3 
-endsnippet
-
-context "math()"
-snippet rd "to the ... power" iA
-^{($1)}$0
 endsnippet
 
 context "math()"
@@ -429,50 +481,88 @@ snippet ~~ "~" iA
 \sim 
 endsnippet
 
-context "math()"
-snippet see "set" wA
-\\{$1\\} $0
-endsnippet
-
 snippet || "mid" iA
 \mid 
 endsnippet
 
 context "math()"
 snippet cc "subset" Ai
-\subset 
+\subset`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
-snippet zz "supset" iA
-\supset 
+snippet cec "subseteq" Ai
+\subseteq`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
-snippet notin "not in " iA
-\not\in 
+
+context "math()"
+snippet zz "supset" iA
+\supset`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 context "math()"
 snippet inn "in " iA
-\in 
+\in`!p
+if t[2] and t[2][0] not in ['\\',',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 snippet nii "ni" iA
-\ni 
+\ni`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0 
 endsnippet
 
 context "math()"
 snippet nin "not in" iA
-\notin 
+\notin`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 context "math()"
 snippet nq "neq" iA
-\neq 
+\neq`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
+
 context "math()"
 snippet ww "cap" iA
-\cap 
+\cap`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$1
 endsnippet
 
 context "math()"
@@ -485,8 +575,20 @@ snippet UU "bigcup" iA
 \bigcup_{${1:i \in ${2: I}}} $0
 endsnippet
 
+priority 2
 context "math()"
-snippet WW "bigcap" iA
+snippet WW "Omega...for now" iA
+\Omega`!p
+if t[2] and t[2][0] not in [',', '$','.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+
+context "math()"
+snippet Ww "bigcap" iA
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet
 
@@ -515,13 +617,13 @@ snippet CP "complex projective space" iA
 \mathbb{C}P^{$1}$0
 endsnippet
 
-context "math"
+context "math()"
 snippet Cn "complex" iA
 \mathbb{C}^{$1}
 endsnippet
 
-context "math"
-snippet Rn "reals" iA
+context "math()"
+snippet rn "reals" iA
 \mathbb{R}^{$1}
 endsnippet
 
@@ -625,15 +727,32 @@ endsnippet
 
 priority 10
 context "math()"
-snippet br "bar" iA
+snippet ovl "overline" iA
 \overline{$1}$0
 endsnippet
 
 priority 100
 context "math()"
 snippet "([a-zA-Z])br" "bar" riA
-\overline{`!p snip.rv=match.group(1)`}
+\bar{`!p snip.rv=match.group(1)`}
 endsnippet
+
+priority 100
+context "math()"
+snippet "([a-zA-Z])tl" "bar" riA
+\tilde{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet bar "bar" iA
+\bar{$1}`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
 
 priority 10
 context "math()"
@@ -657,8 +776,13 @@ snippet impd "implied by" iA
 endsnippet
 
 context "math()"
-snippet iff "iff" Ai
-\iff
+snippet iff "iff" iA
+\iff`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 snippet // "Fraction" 
@@ -687,7 +811,7 @@ endsnippet
 context "math()"
 snippet cases "cases" iA
 \begin{cases}
-	$1\qquad &$2 \\
+	$1\qquad &$2 \\\
 	$3\qquad &$4
 \end{cases}
 endsnippet
@@ -695,6 +819,16 @@ endsnippet
 context "math()"
 snippet fund "fundamental group" iA
 \pi_1(X,x_0)
+endsnippet
+
+context "math()"
+snippet pin "pi_n" iA
+\pi_{$1}($2)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 context "tx()"
@@ -754,7 +888,12 @@ endsnippet
 
 context "math()"
 snippet par "partial" iA
-\partial
+\partial`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
@@ -763,15 +902,21 @@ snippet hat "hat" iA
 endsnippet
 
 context "math()"
-snippet circ "circ" iA
+snippet cic "circ" iA
 \circ 
 endsnippet
 
 priority 10000
 context "math()"
 snippet dbar "dbar" iA
-\bar\partial
+\bar\partial`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
+
 priority 10
 context "math()"
 snippet csep "column sep" iA
@@ -817,7 +962,7 @@ endsnippet
 
 context "math()"
 snippet ovs "overset" iA
-\overset{${1:up}}{${2:down}}$0
+\overset{${1:up}}{$2}$0
 endsnippet
 
 context "math()"
@@ -831,15 +976,32 @@ snippet dim "dimension" iA
 endsnippet
 
 context "math()"
-snippet sm "smile!" iA
-\smile 
+snippet sm "sim" iA
+\sim`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
+
+context "math()"
+snippet cup "smile!" options
+\smile`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
 
 context "math()"
 snippet £ "cdot" iA
 \cdot 
 endsnippet
 
+priority 1
 context "math()"
 snippet sg "squigarrow" iA
 \rightsquigarrow 
@@ -870,9 +1032,16 @@ snippet Gr "grassmannian" iA
 \operatorname{Gr}
 endsnippet
 
+priority 1
 context "math()"
 snippet mt "mapsto" iA
 \mapsto 
+endsnippet
+
+priority 2
+context "math()"
+snippet lmt "longmapsto" iA
+\longmapsto
 endsnippet
 
 context "math()"
@@ -901,7 +1070,7 @@ K(\mathbb{Z},2)
 endsnippet
 
 context "math()"
-snippet ast "asterisk" iA
+snippet as "asterisk" iA
 *
 endsnippet
 
@@ -916,7 +1085,7 @@ S^{2$1}$0
 endsnippet
 
 context "math()"
-snippet sim "simeq" iA
+snippet sime "simeq" iA
 \simeq 
 endsnippet
 
@@ -937,22 +1106,32 @@ endsnippet
 
 context "math()"
 snippet prp "perp" iA
-\perp 
+\perp`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
 snippet vep "varepsilon" iA
-\varepsilon 
+\varepsilon`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
 endsnippet
 
 context "math()"
 snippet vp "varphi" iA
 \varphi`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
-`$2
+`$0
 endsnippet
 
 
@@ -971,19 +1150,8 @@ snippet sn "sine" iA
 \sin 
 endsnippet
 
-
 context "math()"
-snippet hc "hyperbolic cosine" ia
-\opertatorame{cosh} 
-endsnippet
-
-context "math()"
-snippet hs "hyperbolic sine" ia
-\opertatorame{sinh} 
-endsnippet
-
-context "math()"
-snippet § "el 11 no aparece mucho" iA
+snippet ± "el 11 no aparece mucho" iA
 ^{-1}`!p
 if t[2] and t[2][0] not in ['(',',', '.', '_', '?', '-', ' ']:
      snip.rv = ' '
@@ -993,33 +1161,44 @@ else:
 endsnippet
 
 context "math()"
+snippet § "more _" iA
+_
+endsnippet
+
+
+context "math()"
 snippet GL "gl" iA
-\opertatorame{GL}
+\operatorname{GL}($1)$0
+endsnippet
+
+context "math()"
+snippet Sp "Sp" iA
+\operatorname{Sp}($1)$0
 endsnippet
 
 context "math()"
 snippet id "identity" iA
-\opertatorame{id}
+\operatorname{id}
 endsnippet
 
 context "math()"
-snippet sp "span" iA
-\opertatorame{span}`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
+snippet st "star" iA
+^*`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
-`$2
+`$0
 endsnippet
 
 context "math()"
-snippet sta "star" iA
-^{*}`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(']:
+snippet tr "transpose" iA
+^{\mathbf{T}}`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
-`$2
+`$0
 endsnippet
 
 context "math()"
@@ -1059,8 +1238,15 @@ endsnippet
 
 context "math()"
 snippet llr "longleftrightarrow" iA
-\longleftrightarrow
+\longleftrightarrow 
 endsnippet
+
+priority 2
+context "math()"
+snippet lsg "longsquigrightarrow" iA
+\longsquigrightarrow
+endsnippet
+
 
 context "math()"
 snippet R2 "R2" iA
@@ -1094,7 +1280,7 @@ endsnippet
 context "math()"
 snippet lap "laplacian" iA
 \Delta`!p
-if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^',')']:
      snip.rv = ' '
 else:
      snip.rv = ''
@@ -1102,7 +1288,7 @@ else:
 endsnippet
 
 context "math()"
-snippet oc "Ocal" iA
+snippet oC "Ocal" iA
 \mathcal{O}($1)`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
@@ -1112,12 +1298,18 @@ else:
 endsnippet
 
 context "math()"
+snippet oc "Ocal" iA
+\mathcal{O}
+endsnippet
+
+
+context "math()"
 snippet qde "qdet" iA
-\opertatorame{qdet}
+\operatorname{qdet}
 endsnippet
 context "math()"
 snippet iso "iso" iA
-\opertatorame{Iso}(\mathbb{H}^2)
+\operatorname{Iso}(\mathbb{H}^2)
 endsnippet
 
 context "math()"
@@ -1127,10 +1319,89 @@ endsnippet
 
 context "math()"
 snippet def "Deformation" iA
-\opertatorame{Def}^{a}_{X}
+\operatorname{Def}^{a}_{X}
 endsnippet
 
 snippet tex "texorpdfstring" iA
 \texorpdfstring{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet ald "aligned" iA
+\begin{aligned}
+$1
+\end{aligned}
+endsnippet
+
+snippet tk "Description" i
+\begin{tikzcd}$1\end{tikzcd}$0
+endsnippet
+
+context "math()"
+snippet ho "hook" iA
+hook
+endsnippet
+
+priority 1
+context "math()"
+snippet do "dot" iA
+\dot 
+endsnippet
+
+priority 2
+context "math()"
+snippet ddo "ddot" iA
+\ddot 
+endsnippet
+
+priority 3
+context "math()"
+snippet dddo "dddot" iA
+\dddot 
+endsnippet
+
+context "math()"
+snippet amp "ampersand" iA
+&`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+context "math()"
+snippet fl "flat" iA
+\flat`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+context "math()"
+snippet sh "sharp" iA
+\sharp`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+context "math()"
+snippet longr "longrightarrow" iA
+\longrightarrow`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+
+context "math()"
+snippet rs "restriction" iA
+|_{$1}
 endsnippet
 
