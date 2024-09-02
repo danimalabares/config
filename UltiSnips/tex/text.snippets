@@ -303,7 +303,7 @@ snippet table "Table environment" b
 endsnippet
 
 snippet fig "Figure environment" b
-\begin{figure}[${1:htpb}]
+\begin{figure}[${1:htpb=where?}]
 	\centering
 	${2:\includegraphics[width=0.8\textwidth]{$3}}
 	\caption{${4:$3}}
@@ -548,7 +548,7 @@ pping
 endsnippet
 
 context "tx()"
-snippet \c "c with hook" iA
+snippet \cc "c with hook" iA
 \c c
 endsnippet
 
@@ -605,5 +605,15 @@ endsnippet
 context "tx()"
 snippet `a "a" iA
 \`a
+endsnippet
+
+context "tx()"
+snippet cite "cite" iA
+\cite{$1}`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 

@@ -786,6 +786,7 @@ snippet impd "implied by" iA
 \impliedby
 endsnippet
 
+priority 2
 context "math()"
 snippet iff "iff" iA
 \iff`!p
@@ -800,8 +801,9 @@ snippet // "Fraction"
 \\frac{$1}{$2}$0
 endsnippet
 
+priority 1
 context "math()"
-snippet fra "Fraction" iA
+snippet ff "Fraction" iA
 \frac{$1}{$2}$0
 endsnippet
 
@@ -819,8 +821,9 @@ snippet ... "ldots" iA
 \ldots
 endsnippet
 
+priority 1
 context "math()"
-snippet cases "cases" iA
+snippet bca "cases" iA
 \begin{cases}
 	$1\qquad &$2 \\\
 	$3\qquad &$4
@@ -1080,6 +1083,7 @@ snippet K2 "K" iA
 K(\mathbb{Z},2)
 endsnippet
 
+priority 100
 context "math()"
 snippet as "asterisk" iA
 *
@@ -1414,5 +1418,10 @@ endsnippet
 context "math()"
 snippet rs "restriction" iA
 |_{$1}
+endsnippet
+
+context "math()"
+snippet under "underbrace" iA
+\underbrace{$1}_{$2}
 endsnippet
 
