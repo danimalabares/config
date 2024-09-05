@@ -444,8 +444,8 @@ snippet xx "cross" iA
 endsnippet
 
 context "math()"
-snippet aa "cdot" iA
-\cdot 
+snippet AA "affine" iA
+\mathbb{A}^{$1} 
 endsnippet
 
 context "math()"
@@ -558,7 +558,7 @@ endsnippet
 
 context "math()"
 snippet nq "neq" iA
-\neq`!p
+\neq `!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
@@ -716,7 +716,7 @@ snippet EE "exists" iA
 endsnippet
 
 context "math()"
-snippet AA "forall" iA
+snippet aa "forall" iA
 \forall 
 endsnippet
 
@@ -1423,5 +1423,10 @@ endsnippet
 context "math()"
 snippet under "underbrace" iA
 \underbrace{$1}_{$2}
+endsnippet
+
+context "math()"
+snippet To "overset name" iA
+\overset{$1}{\longrightarrow}
 endsnippet
 
