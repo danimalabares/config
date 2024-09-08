@@ -248,30 +248,37 @@ snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+context "math()"
 snippet lr "left( right)" i
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
-snippet lr( "left( right)" iA
+context "math()"
+snippet lrp "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+context "math()"
 snippet lr| "left| right|" i
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
 
+context "math()"
 snippet lr{ "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
-snippet lr| "left| right|" iA
-\left| ${1:${VISUAL}} \right| $0
+context "math()"
+snippet lrs "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
+context "math()"
 snippet lr[ "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
+context "math()"
 snippet lra "leftangle rightangle" iA
 \left<$1\right>`!p
 if t[1] not in [',', '.', '_', '?', '-', ' ','(','^']:
@@ -589,14 +596,23 @@ endsnippet
 priority 2
 context "math()"
 snippet WW "Omega...for now" iA
-\Omega`!p
+\Omega^{$1}($2)`!p
+if t[3] and t[3][0] not in [',', '$','.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$3
+endsnippet
+
+context "math()"
+snippet XX "vector fields" iA
+\mathfrak{X}($1)`!p
 if t[2] and t[2][0] not in [',', '$','.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
 `$2
 endsnippet
-
 
 context "math()"
 snippet Ww "bigcap" iA
@@ -836,7 +852,7 @@ snippet fund "fundamental group" iA
 endsnippet
 
 context "math()"
-snippet pin "pi_n" iA
+snippet Pin "pi_n" iA
 \pi_{$1}($2)`!p
 if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(']:
      snip.rv = ' '
@@ -1187,7 +1203,7 @@ snippet GL "gl" iA
 endsnippet
 
 context "math()"
-snippet Sp "Sp" iA
+snippet Spn "Sp" iA
 \operatorname{Sp}($1)$0
 endsnippet
 
@@ -1276,15 +1292,6 @@ endsnippet
 context "math()"
 snippet R3 "R3" iA
 \mathbb{R}^3`!p
-if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(']:
-     snip.rv = ' '
-else:
-     snip.rv = ''
-`$1
-endsnippet
-
-snippet poo "po" iA
-$p_{0}$`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(']:
      snip.rv = ' '
 else:
@@ -1426,7 +1433,17 @@ snippet under "underbrace" iA
 endsnippet
 
 context "math()"
+snippet Cong "cong specific" iA
+\overset{$1}{\cong}
+endsnippet
+
+context "math()"
 snippet To "overset name" iA
 \overset{$1}{\longrightarrow}
+endsnippet
+
+context "math()"
+snippet cin "cinfinity" iA
+\mathcal{C}^\infty($1)
 endsnippet
 
