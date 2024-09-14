@@ -119,11 +119,25 @@ snippet exer "" bA
 \end{exercise}$0
 endsnippet
 
+snippet Mex "labeled manual numbering exercise" bA
+\addcontentsline{toc}{subsection}{Exercise $1}
+\begin{manualexercise}{$1}
+	$2
+\end{manualexercise}$0
+endsnippet
+
 snippet mex "manual numbering exercise" bA
 \begin{manualexercise}{${1:number}}
 	$2
 \end{manualexercise}$0
 endsnippet
+
+context "tx()"
+snippet prob "Problem" bA
+\addcontentsline{toc}{subsection}{Problem $1}
+\paragraph{Problem $1}$0
+endsnippet
+
 
 snippet mdef "manualdef" bA
 \begin{manualdef}{${1:number}}
@@ -137,7 +151,15 @@ snippet conj "" bA
 \end{conjecture}$0
 endsnippet
 
-snippet pf "" bA
+context "tx()"
+snippet pf "proof" bA
+\begin{proof}
+	$1
+\end{proof}$0
+endsnippet
+
+
+snippet dem "demostracao" bA
 \begin{proof}[Demostra\c c\~ao]
 	$1
 \end{proof}$0
@@ -157,7 +179,7 @@ endsnippet
 
 snippet ali "align" bA
 \begin{align*}
-	$1
+	$1&=$2
 \end{align*}$0
 endsnippet
 
@@ -221,7 +243,7 @@ endsnippet
 
 priority 1
 context "tx()"
-snippet i "italic" i
+snippet i "italic" w
 \textit{$1}`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
@@ -230,11 +252,16 @@ else:
 `$0
 endsnippet
 
-snippet hr
-\href{${1:url}}{${2:display name}}$0
+snippet hr "hyperref" i
+\href{$1}{$2}`!p
+if t[3] and t[3][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$3
 endsnippet
 
-snippet cite
+snippet ct "cite" i
 \cite{$1}$2
 endsnippet
 
@@ -249,6 +276,8 @@ endsnippet
 snippet enum "Enumerate" bA
 \begin{enumerate}
 	\item $1
+
+	\item $2
 \end{enumerate}
 endsnippet
 
@@ -279,7 +308,7 @@ endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $1
+\item $1
 \end{itemize}
 endsnippet
 
@@ -347,8 +376,14 @@ snippet template "Basic template" b
 endsnippet
 
 snippet ka "Kahler"
-K\"ahler
+K\"ahler 
 endsnippet
+
+context "tx()"
+snippet Cech "Cech" iA
+\v Cech
+endsnippet
+
 
 context "tx()"
 snippet 'i "i" iA
@@ -529,9 +564,13 @@ snippet \if "iffase" iA
 \iffalse
 endsnippet
 
-snippet txt "texttt" iA
-\texttt{$1}$0
-
+snippet txx "texttt" iA
+\texttt{$1}`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "tx()"
@@ -622,5 +661,47 @@ if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
 else:
      snip.rv = ''
 `$2
+endsnippet
+
+context "tx()"
+snippet viz "viz" iA
+vizinhança`!p
+if t[2] and t[2][0] not in ['s',',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "tx()"
+snippet ed "end document" bA
+\end{document}
+endsnippet
+
+context "tx()"
+snippet pb "print bibliogrphy" bA
+\printbibliography
+endsnippet
+
+context "tx()"
+snippet tc "table of contents" bA
+\tableofcontents
+endsnippet
+
+context "tx()"
+snippet ises "inline" iA
+$0\to $1\to $2\to $3\to 0$`!p
+if t[5] and t[5][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$5
+endsnippet
+
+context "tx()"
+snippet fr "frame" bA
+\begin{frame}
+	$1
+\end{frame}$0
 endsnippet
 

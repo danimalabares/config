@@ -136,3 +136,45 @@ snippet coeq "coequalizer" i
 \end{tikzcd}\]
 endsnippet
 
+snippet dtrid "down triangle" bA
+\[\begin{tikzcd}
+$1\arrow[rr,"$2"]\arrow[dr,"$3",swap]&&$4\arrow[dl,"$5"]\\\
+&$6
+\end{tikzcd}\]
+endsnippet
+
+snippet dtriu "down triangle up" bA
+\[\begin{tikzcd}
+$1\arrow[rr,"$2"]&&$3\\\
+&$4\arrow[ul,"$5"]\arrow[ur,"$6",swap]
+\end{tikzcd}\]
+endsnippet
+
+snippet utrid "uptriangle" bA
+\[\begin{tikzcd}
+&$1\arrow[dl,"$2",swap]\arrow[dr,"$3"]\\\
+$4\arrow[rr,"$5"]&&$6
+\end{tikzcd}\]
+endsnippet
+
+snippet utriu "up triangle up" bA
+\[\begin{tikzcd}
+&$1\\\
+$2\arrow[rr,"$3"]\arrow[ur,"$4"]&&$5\arrow[ul,"$6",swap]
+\end{tikzcd}\]
+endsnippet
+
+snippet bund "bundle" i
+\[\begin{tikzcd}
+$1\arrow[d,"$2"]\\\
+$3
+\end{tikzcd}\]
+endsnippet
+
+snippet uldr "upper left down right" b
+\[\begin{tikzcd}
+$1\arrow[r,"$2"]\arrow[d,"$3",swap]&$4\arrow[dl,"$5"]\\\
+$6
+\end{tikzcd}\]
+endsnippet
+

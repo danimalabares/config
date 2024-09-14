@@ -66,6 +66,12 @@
   \manualdefinner
 }{\endmanualdefinner}
 
+\newtheorem{manualthminner}{Theorem}
+\newenvironment{manualthm}[1]{%
+  \renewcommand\themanualthminner{#1}%
+  \manualthminner
+}{\endmanualthminner}
+
 \newtheorem{manualexerciseinner}{Exercise}
 \newenvironment{manualexercise}[1]{%
   \renewcommand\themanualexerciseinner{#1}%
