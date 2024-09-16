@@ -367,7 +367,7 @@ if t[5] and t[5][1] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
 else:
     snip.rv = ''
-`$4
+`$5
 endsnippet
 
 snippet Fun
@@ -1229,6 +1229,75 @@ snippet GL "gl" iA
 endsnippet
 
 context "math()"
+snippet SO "so" iA
+\operatorname{SO}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet Un "Unitary" iA
+\operatorname{U}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet Spin "spin" iA
+\operatorname{Spin}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet SU "special unitary" iA
+\operatorname{SU}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet Or "Orthogonal" iA
+\operatorname{O}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet SL "SL" iA
+\operatorname{SL}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet Sp "simpletico" iA
+\operatorname{Sp}($1)`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+context "math()"
 snippet Spn "Sp" iA
 \operatorname{Sp}($1)$0
 endsnippet
@@ -1249,7 +1318,7 @@ else:
 endsnippet
 
 context "math()"
-snippet Tr "transpose" iA
+snippet tra "transpose" iA
 ^{\mathbf{T}}`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
