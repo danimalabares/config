@@ -80,7 +80,12 @@ endsnippet
 priority 2
 context "math()"
 snippet lto "longto" iA
-\longrightarrow
+\longrightarrow`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 
