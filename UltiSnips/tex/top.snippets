@@ -70,10 +70,18 @@ snippet sel "short exact labeled"
 \end{tikzcd}\]$0
 endsnippet
 
+priority 2
 snippet ses "short exact sequence"
 \[\begin{tikzcd}
 	0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0
 \end{tikzcd}\]$0
+endsnippet
+
+priority 1
+snippet ises "inline short exact sequence"
+$\begin{tikzcd}
+	0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0
+\end{tikzcd}$$0
 endsnippet
 
 snippet les "long exact sequence"

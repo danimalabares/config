@@ -45,12 +45,11 @@ snippet oper "operator" iA
 \operatorname{$1}$0
 endsnippet
 
-snippet end "smart ending" i
-`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ']:
-     snip.rv = ' '
-else:
-     snip.rv = ''
-`$2
+
+snippet Op "ope}" iA
+`!p snip.rv = "snippet"` ${1:trigger} "${2:Description}" ${3:options}
+\operatorname{$4}(`!p snip.rv="$1"`)
+`!p snip.rv = "endsnippet"`
+$0
 endsnippet
 

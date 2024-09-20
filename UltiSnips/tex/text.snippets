@@ -341,9 +341,8 @@ endsnippet
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb=where?}]
 	\centering
-	${2:\includegraphics[width=0.8\textwidth]{$3}}
-	\caption{${4:$3}}
-	\label{fig:${5:${3/\W+/-/g}}}
+	\includegraphics[width=$2\textwidth]{$3}
+	\caption*{$4}
 \end{figure}
 endsnippet
 
@@ -592,10 +591,6 @@ snippet Cn "complex" iA
 $\mathbb{C}^{$1}$
 endsnippet
 
-context "tx()"
-snippet CC "complex" iA
-$\mathbb{C}$
-endsnippet
 
 context "tx()"
 snippet Rn "real" iA
@@ -703,16 +698,6 @@ snippet tc "table of contents" bA
 endsnippet
 
 context "tx()"
-snippet ises "inline" iA
-$0\to $1\to $2\to $3\to 0$`!p
-if t[5] and t[5][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
-     snip.rv = ' '
-else:
-     snip.rv = ''
-`$5
-endsnippet
-
-context "tx()"
 snippet fr "frame" bA
 \begin{frame}
 	$1
@@ -774,5 +759,15 @@ endsnippet
 context "tx()"
 snippet sao "sao" iA
 são
+endsnippet
+
+context "tx()"
+snippet bdef "bdef" bA
+\begin{defn}
+endsnippet
+
+context "tx()"
+snippet edef "bdsa" bA
+\end{defn}
 endsnippet
 

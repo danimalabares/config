@@ -23,9 +23,10 @@ snippet HH "cohomology2" iA
 H^{$1}($2)$0
 endsnippet
 
+priority 2
 context "math()"
 snippet hh "homology2" iA
-H_{$1}($2)$0
+h^{$1}($2)$0
 endsnippet
 
 snippet mk "Math" wA
@@ -659,7 +660,7 @@ endsnippet
 
 context "math()"
 snippet OO "emptyset" iA
-\varnothing 
+\mathcal{O}
 endsnippet
 
 context "math()"
@@ -1340,6 +1341,15 @@ else:
 endsnippet
 
 context "math()"
+snippet St "star" iA
+^*`!p
+if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$0
+endsnippet
+context "math()"
 snippet st "star" iA
 ^*`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
@@ -1741,6 +1751,7 @@ snippet aray "array" iA
 \end{array}
 endsnippet
 
+priority 1
 context "math()"
 snippet hh "algebra de lie" iA
 \mathfrak{h}`!p
@@ -1911,5 +1922,32 @@ if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
 else:
      snip.rv = ''
 `$2
+endsnippet
+
+context "math()"
+snippet mm "ideal" iA
+\mathfrak{m}
+endsnippet
+
+context "math()"
+snippet Aut "Automorph" iA
+\operatorname{Aut}($1)
+endsnippet
+
+context "math()"
+snippet Fix "fixed" iA
+\operatorname{Fix}($1)
+endsnippet
+
+snippet NS "neron severi" iA
+\operatorname{NS}($2)
+endsnippet
+
+snippet vc "vacio" iA
+\varnothing
+endsnippet
+
+snippet EE "Description" iA
+\mathcal{E}
 endsnippet
 
