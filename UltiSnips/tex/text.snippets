@@ -160,7 +160,7 @@ endsnippet
 
 
 snippet dem "demostracao" bA
-\begin{proof}[Demostra\c c\~ao]
+\begin{proof}[Demostração]
 	$1
 \end{proof}$0
 endsnippet
@@ -387,39 +387,53 @@ endsnippet
 
 context "tx()"
 snippet 'i "i" iA
-\'i
+í
 endsnippet
 
 context "tx()"
 snippet 'e "e" iA
-\'e
+é
 endsnippet
 
 context "tx()"
 snippet 'a "a" iA
-\'a
+á
 endsnippet
 
 context "tx()"
 snippet 'o "o" iA
-\'o
+ó
 endsnippet
 
 context "tx()"
 snippet 'u "u" iA
-\'u
+ú
 endsnippet
 
 context "tx()"
 snippet 'A "A" iA
-\'A
+Á
 endsnippet
 
 context "tx()"
 snippet 'E "E" iA
-\'E
+É
 endsnippet
 
+context "tx()"
+snippet 'I "Description" options
+Í
+endsnippet
+
+context "tx()"
+snippet 'O "Description" options
+Ó
+endsnippet
+
+context "tx()"
+snippet 'U "Description" options
+Ú
+endsnippet
 
 snippet ~a "a" iA
 \~a
@@ -595,42 +609,42 @@ endsnippet
 
 context "tx()"
 snippet \cc "c with hook" iA
-\c c
+ç
 endsnippet
 
 context "tx()"
 snippet ^a "hat" iA
-\^a
+â
 endsnippet
 
 context "tx()"
 snippet ^o "hat" iA
-\^o
+ô
 endsnippet
 
 context "tx()"
 snippet ^e "hat" iA
-\^e
+~e
 endsnippet
 
 context "tx()"
 snippet …a "atilde" iA
-\~a
+ã
 endsnippet
 
 context "tx()"
 snippet …o "otilde" iA
-\~o
+õ
 endsnippet
 
 context "tx()"
 snippet ~o "otilde" iA
-\~o
+õ
 endsnippet
 
 context "tx()"
 snippet cao "cao" iA 
-\c c\~ao`!p
+ção`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
@@ -640,7 +654,7 @@ endsnippet
 
 context "tx()"
 snippet coes "coes" iA
-\c c\~oes`!p
+ções`!p
 if t[1] and t[1][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
@@ -650,7 +664,7 @@ endsnippet
 
 context "tx()"
 snippet `a "a" iA
-\`a
+à
 endsnippet
 
 context "tx()"
@@ -703,5 +717,62 @@ snippet fr "frame" bA
 \begin{frame}
 	$1
 \end{frame}$0
+endsnippet
+
+context "tx()"
+snippet Tei "Techmuller" iA
+Teichm\üer`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "tx()"
+snippet nao "nao" iA
+não`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "tx()"
+snippet Ao "ao" iA
+ão`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "tx()"
+snippet ep "end proof" bA
+\end{proof}
+endsnippet
+
+context "tx()"
+snippet [a "à" iA
+à
+endsnippet
+
+context "tx()"
+snippet {e "ê" iA
+ê
+endsnippet
+
+context "tx()"
+snippet {a "â" iA
+â
+endsnippet
+
+
+
+context "tx()"
+snippet sao "sao" iA
+são
 endsnippet
 
