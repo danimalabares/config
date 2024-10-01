@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage[left=4cm, right=4cm]{geometry}
 \usepackage{palatino,eulervm,dutchcal,xcolor}
 \usepackage{graphicx,subcaption,float}
@@ -12,6 +12,21 @@ tikz,tikz-cd}
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=magenta,citecolor=blue,filecolor=blue,urlbordercolor=white,linkbordercolor=white,citebordercolor=white,filebordercolor=white}
 \usepackage{cleveref}
+
+%Quitar páginas en blanco
+\let\cleardoublepage\clearpage
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@endpart}{\vfil\newpage}{\par}{}{}
+\makeatother
+
+%Cambiar el formato de los capítulos
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge\thechapter.~}
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge}
+\renewcommand{\chaptermark}[1]{\markboth{{} \thechapter: #1}{}}
+
 %\usepackage[citestyle=authortitle-terse,backref,backend=bibtex]{biblatex}
 %\addbibresource{homotopy-theory.bib}
-

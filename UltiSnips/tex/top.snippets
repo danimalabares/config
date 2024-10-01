@@ -97,12 +97,12 @@ snippet lesc "long exact sequence cohomology"
 endsnippet
 
 context "math()"
-snippet arr "arrow" wA
+snippet AR "arrow" wA
 \arrow[$1,"$2"]&$0
 endsnippet
 
 context "math()"
-snippet AR "arrow" iA
+snippet arr "arrow" iA
 \arrow[$1]$0
 endsnippet
 
@@ -191,5 +191,15 @@ snippet uldr "upper left down right" b
 $1\arrow[r,"$2"]\arrow[d,"$3",swap]&$4\arrow[dl,"$5"]\\\
 $6
 \end{tikzcd}\]
+endsnippet
+
+context "math()"
+snippet Col "column sep" iA
+column sep =
+endsnippet
+
+context "math()"
+snippet Row "row sep" iA
+row sep =
 endsnippet
 
