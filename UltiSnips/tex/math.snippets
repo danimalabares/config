@@ -3642,3 +3642,13 @@ snippet Disc "an operator" iA
 \operatorname{Disc}($1)
 endsnippet
 
+context "math()"
+snippet sur "sujection two double headed" iA
+\twoheadedarrow`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
