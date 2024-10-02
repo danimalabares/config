@@ -39,18 +39,24 @@ else:
 endsnippet
 
 snippet dm "Math" wA
-\[${1:${VISUAL}}\]$0
+\[${1:${VISUAL}}\]
 endsnippet
 
 context "math()"
 snippet mc "mathcal" iA
-\mathcal{$1}$0
+\mathcal{$1}
 endsnippet
 
 context "math()"
 snippet mf "mathfrak" iA
-\mathfrak{$1}$0
+\mathfrak{$1}
 endsnippet
+
+context "math()"
+snippet ms "mathsansserif" iA
+\mathsf{$1}
+endsnippet
+
 
 context "math()"
 snippet tx "text" iA
@@ -143,6 +149,7 @@ snippet '([A-Za-z])mm' "autosubscript" wrA
 `!p snip.rv = match.group(1)`_m
 endsnippet
 
+priority 1
 context "math()"
 snippet '([A-Za-z])nn' "autosubscript" wrA
 `!p snip.rv = match.group(1)`_n
@@ -579,6 +586,7 @@ snippet || "mid" iA
 \mid 
 endsnippet
 
+priority 1
 context "math()"
 snippet cc "subset" Ai
 \subset`!p
@@ -589,6 +597,18 @@ else:
 `$2
 endsnippet
 
+priority 2
+context "math()"
+snippet ncc "not subset" iA
+\not\subset`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+priority 1
 context "math()"
 snippet cec "subseteq" Ai
 \subseteq`!p
@@ -599,6 +619,18 @@ else:
 `$2
 endsnippet
 
+priority 2
+context "math()"
+snippet ncec "not subset" iA
+\not\subseteq`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+priority 1
 context "math()"
 snippet zez "supset" iA
 \supseteq`!p
@@ -609,6 +641,18 @@ else:
 `$0
 endsnippet
 
+priority 2
+context "math()"
+snippet nzez "not subset" iA
+\not\supseteq`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+priority 1
 context "math()"
 snippet zz "supset" iA
 \supset`!p
@@ -619,6 +663,18 @@ else:
 `$0
 endsnippet
 
+priority 2
+context "math()"
+snippet nzz "not subset" iA
+\not\supset`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+priority 2
 context "math()"
 snippet inn "in " iA
 \in`!p
@@ -819,6 +875,18 @@ snippet PP "p" iA
 endsnippet
 
 context "math()"
+snippet Pn "projective" iA
+\mathbb{P}^{$1}
+endsnippet
+
+context "math()"
+snippet PN "projective" iA
+\mathbb{P}^{$1}
+endsnippet
+
+
+
+context "math()"
 snippet ee "exists" iA
 \exists 
 endsnippet
@@ -840,6 +908,24 @@ snippet bif "Big function" iA
 \end{align*}
 $0
 endsnippet
+
+snippet rif "Big function" bA
+\begin{align*}
+	$1: $2 &\dashrightarrow $3 \\\\
+	$4 &\longmapsto $5
+\end{align*}
+$0
+endsnippet
+
+snippet rf "rational function" iA
+$$1:$2\dashrightarrow $3$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
 
 snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
@@ -957,16 +1043,6 @@ if t[3] and t[3][0] not in [',', '.', '_', '?', '-', ' ','(']:
 else:
      snip.rv = ''
 `$3
-endsnippet
-
-context "tx()"
-snippet pin "pi_n" iA
-$\pi_{$1}($2}$`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(']:
-     snip.rv = ' '
-else:
-     snip.rv = ''
-`$1
 endsnippet
 
 context "math()"
@@ -2024,7 +2100,7 @@ endsnippet
 
 context "math()"
 snippet mm "ideal" iA
-\mathfrak{m}_$1
+\mathfrak{m}
 endsnippet
 
 context "math()"
@@ -2104,7 +2180,7 @@ snippet Def "Deform" iA
 endsnippet
 
 context "math()"
-snippet maps "maps to" iA
+snippet MA "maps to" iA
 maps to
 endsnippet
 
@@ -2265,20 +2341,20 @@ endsnippet
 context "tx()"
 snippet vma "varphi map" iA
 $\varphi:$1\longrightarrow $2$`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+if t[3] and t[3][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
-`$2
+`
 endsnippet
 context "tx()"
 snippet fma "f map" iA
-$f:$1\longrightarrow $2`!p
-if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+$f:$1\longrightarrow $2$`!p
+if t[3] and t[3][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
      snip.rv = ' '
 else:
      snip.rv = ''
-`$2
+`
 endsnippet
 
 context "math()"
@@ -2296,9 +2372,13 @@ snippet jn "paran" iA
 endsnippet
 
 context "math()"
-snippet dto "dashed to, ration" iA
-\dashrightarrow
-
+snippet rat "dashed to, ration" iA
+\dashrightarrow`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
 endsnippet
 
 context "math()"
@@ -2840,7 +2920,7 @@ snippet Rk "remark" bA
 endsnippet
 
 snippet rk "remark" bA
-\begin{remark}
+\begin{remark}\leavevmode
 	$1
 \end{remark}$0
 endsnippet
@@ -3092,7 +3172,7 @@ else:
 endsnippet
 
 snippet Grun "grunbaum" iA
-Gr\"unbraum
+Grünbraum
 endsnippet
 
 snippet Gol "golebiewski" iA
@@ -3430,12 +3510,23 @@ snippet {e "ê" iA
 ê
 endsnippet
 
+priority 1
 context "tx()"
 snippet {a "â" iA
 â
 endsnippet
 
+priority 2
+context "tx()"
+snippet bf{a "italics" iA
+bf{a
+endsnippet
 
+priority 2
+context "tx()"
+snippet it{a "italics" iA
+it{a
+endsnippet
 
 context "tx()"
 snippet sao "sao" iA
@@ -3650,5 +3741,30 @@ if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
 else:
      snip.rv = ''
 `$2
+endsnippet
+
+context "math()"
+snippet '([A-Z])c' "mathcal" wrA
+\mathcal{`!p snip.rv = match.group(1)`}
+endsnippet
+
+context "tx()"
+snippet OK "OK" iA
+$\mathsf{OK}$`!p
+if t[2] and t[2][0] not in [',', '.', '_', '?', '-', ' ','(','^']:
+     snip.rv = ' '
+else:
+     snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet mu "mu" iA
+\mu
+endsnippet
+
+context "math()"
+snippet th "theta" iA
+\theta
 endsnippet
 

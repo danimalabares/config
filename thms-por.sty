@@ -1,41 +1,68 @@
-\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
-\definecolor{azure}{rgb}{0.0, 0.5, 1.0}
-\definecolor{green(ncs)}{rgb}{0.0, 0.62, 0.42}
-\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
-\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
-\definecolor{palatinateblue}{rgb}{0.15, 0.23, 0.89}
-\definecolor{trueblue}{rgb}{0.0, 0.45, 0.81}
-\definecolor{goldenyellow}{rgb}{1.0, 0.87, 0.0}
-\definecolor{fashionfuchsia}{rgb}{0.96, 0.0, 0.63}
-\definecolor{brightcerulean}{rgb}{0.11, 0.67, 0.84}
-\definecolor{jonquil}{rgb}{0.98, 0.85, 0.37}
-\definecolor{lavendermagenta}{rgb}{0.93, 0.51, 0.93}
-\definecolor{peru}{rgb}{0.8, 0.52, 0.25}
-\definecolor{persimmon}{rgb}{0.93, 0.35, 0.0}
-\definecolor{persianred}{rgb}{0.8, 0.2, 0.2}
-\definecolor{persianblue}{rgb}{0.11, 0.22, 0.73}
-\definecolor{persiangreen}{rgb}{0.0, 0.65, 0.58}
-\definecolor{persianyellow}{rgb}{0.9, 0.89, 0.0}
+\renewcommand*{\contentsname}{Índice}  
+\renewcommand*{\proofname}{Demostra\c c\~ao}
 
-\declaretheoremstyle[headfont=\color{trueblue}\normalfont\bfseries,]{colored1}
-\declaretheoremstyle[headfont=\color{forestgreen}\normalfont\bfseries,]{colored2}
-\declaretheoremstyle[headfont=\color{peru}\normalfont\bfseries,]{colored3}
-\declaretheoremstyle[headfont=\color{persiangreen}\normalfont\bfseries,]{colored4}
-\declaretheoremstyle[headfont=\color{brightcerulean}\normalfont\bfseries,]{colored5}
-\declaretheoremstyle[headfont=\color{lavendermagenta}\normalfont\bfseries,]{colored6}
-\declaretheoremstyle[headfont=\color{blue-violet}\normalfont\bfseries,]{colored7}
-\declaretheoremstyle[headfont=\color{green(ncs)}\normalfont\bfseries,]{colored8}
-\declaretheoremstyle[headfont=\color{peru}\normalfont\bfseries,]{colored9}
-\declaretheoremstyle[headfont=\color{persiangreen}\normalfont\bfseries,]{colored10}
+\theoremstyle{definition}
+\theoremstyle{c1}
+\newtheorem*{thm}{Teorema}
 
-\declaretheorem[style=colored1,numbered=no,name=Teorema]{thm}
-\declaretheorem[style=colored2,numbered=no,name=Proposicição]{prop}
-\declaretheorem[style=colored3,numbered=no,name=Lema]{lemma}
-\declaretheorem[style=colored4,numbered=no,name=Corolário]{coro}
-\declaretheorem[style=colored5,numbered=no,name=Exemplo]{example}
-\declaretheorem[style=colored5,numbered=no,name=Exemplos]{exemplos}
-\declaretheorem[style=colored7,numbered=no,name=Exercício]{exercise}
-\declaretheorem[style=colored6,numbered=no,name=Observação]{remark}
-\declaretheorem[style=colored8,numbered=no,name=Afirmação]{claim}
-\declaretheorem[style=colored9,numbered=no,name=Definição]{defn}
-\declaretheorem[style=colored10,numbered=no,name=Pergunta]{question}
+\theoremstyle{c2}
+\newtheorem*{prop}{Proposição}
+\newtheorem*{lemma}{Lemma}
+
+\theoremstyle{c3}
+\newtheorem*{example}{Exemplo}
+
+\theoremstyle{c4}
+\newtheorem*{conjecture}{Conjectura}
+
+\theoremstyle{c5}
+\newtheorem*{exercise}{Exercício}
+
+\theoremstyle{c3}
+\newtheorem*{remark}{Observação}
+
+\theoremstyle{c8}
+\newtheorem*{claim}{Afirmação}
+
+\theoremstyle{c1}
+\newtheorem*{question}{Pergunta}
+
+\theoremstyle{c14}
+\newtheorem*{defn}{Definição}
+
+\theoremstyle{c10}
+\newtheorem*{upshot}{Upshot}
+
+\theoremstyle{c10}
+\newtheorem*{coro}{Corolário}
+
+%Manual numbering environments
+\theoremstyle{c10}
+\newtheorem{manualdefinner}{Definição}
+\newenvironment{manualdef}[1]{%
+  \renewcommand\themanualdefinner{#1}%
+  \manualdefinner
+}{\endmanualdefinner}
+
+\theoremstyle{c13}
+\newtheorem{manualthminner}{Teorema}
+\newenvironment{manualthm}[1]{%
+  \renewcommand\themanualthminner{#1}%
+  \manualthminner
+}{\endmanualthminner}
+
+\theoremstyle{c1}
+\newtheorem{manualexerciseinner}{Exercício}
+\newenvironment{manualexercise}[1]{%
+  \renewcommand\themanualexerciseinner{#1}%
+  \manualexerciseinner
+}{\endmanualexerciseinner}
+
+\theoremstyle{c15}
+\newtheorem{manualcorollaryinner}{Corolário}
+\newenvironment{manualcorollary}[1]{%
+  \renewcommand\themanualcorollaryinner{#1}%
+  \manualcorollaryinner
+}{\endmanualcorollaryinner}
+
+
