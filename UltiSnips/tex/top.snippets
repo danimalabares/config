@@ -32,22 +32,15 @@ endsnippet
 
 snippet sq "square"
 \[\begin{tikzcd}
-	$1\arrow[r]\arrow[d]&$2\arrow[d]\\
+	$1\arrow[r]\arrow[d]&$2\arrow[d]\\\
 	$3\arrow[r]&$4
 \end{tikzcd}\]$0
 endsnippet
 
-snippet sqd "square labeled"
+snippet Sq "square labeled"
 \[\begin{tikzcd}
 	$1\arrow[r,"$2"]\arrow[d,"$3",swap]&$4\arrow[d,"$5"]\\\
-	$6\arrow[r,"$7"]&$8
-\end{tikzcd}\]$0
-endsnippet
-
-snippet squ "square labeled"
-\[\begin{tikzcd}
-	$1\arrow[r,"$2"]&$3\\\
-	$5\arrow[u,"$6"]\arrow[r,swap,"$7"]&$8\arrow[u,"$9",swap]
+	$6\arrow[r,swap,"$7"]&$8
 \end{tikzcd}\]$0
 endsnippet
 
@@ -72,15 +65,19 @@ endsnippet
 
 priority 2
 snippet ses "short exact sequence"
-\[\begin{tikzcd}
-	0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0
-\end{tikzcd}\]$0
+\[\begin{tikzcd}0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0\end{tikzcd}\]$0
 endsnippet
 
 priority 1
 snippet ises "inline short exact sequence"
-$\begin{tikzcd}
+$\begin{tikzcd}[column sep=small]
 	0\arrow[r]&$1\arrow[r]&$2\arrow[r]&$3\arrow[r]&0
+\end{tikzcd}$$0
+endsnippet
+priority 1
+snippet Ises "inline short exact sequence"
+$\begin{tikzcd}[column sep=small]
+	0\arrow[r]&$1\arrow[r,"$2"]&$3\arrow[r,"$4"]&$5\arrow[r]&0
 \end{tikzcd}$$0
 endsnippet
 

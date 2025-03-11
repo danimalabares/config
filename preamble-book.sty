@@ -30,25 +30,26 @@ tikz,tikz-cd}
 
 %\usepackage[citestyle=authortitle-terse,backref,backend=bibtex]{biblatex}
 %\addbibresource{homotopy-theory.bib}
-
-\definecolor{1}{rgb}{0.54, 0.17, 0.89}%blue-violet
-\definecolor{2}{rgb}{0.0, 0.5, 1.0}%azure
-\definecolor{3}{rgb}{0.0, 0.62, 0.42}%green(ncs)
-\definecolor{4}{rgb}{0.9, 0.1, 0.8}%PINK
-\definecolor{5}{rgb}{0.6, 0.4, 0.99}%lila
-\definecolor{6}{rgb}{0.5, 0.2, 0.5}%darker lila
-\definecolor{7}{rgb}{0.0, 0.45, 0.81}%trueblue
-\definecolor{8}{rgb}{1.0, 0.0, 0.0}%Red
-\definecolor{9}{rgb}{0.96, 0.0, 0.63}%fashionfuchsia
-\definecolor{10}{rgb}{0.11, 0.67, 0.84}%brightcerulean
+                                     %dark mode/light mode
+\definecolor{1}{rgb}{0.93, 0.35, 0.0}%persimmon(blue)/orange
+\definecolor{2}{rgb}{1.0, 0.0, 0.0}%cyan/red
+\definecolor{3}{rgb}{0.9, 0.2, 0.5}%green/purply
+\definecolor{4}{rgb}{0.37, 0.4444.74}%purple/green
+\definecolor{5}{rgb}{0.0, 0.62, 0.42}%intense pink/greenblue (look for lila!)
+\definecolor{6}{rgb}{0.0, .8, 1}%red/cyan
+\definecolor{7}{rgb}{0.0, 0.5, 1.0}% orange/cyan
+\definecolor{8}{rgb}{0.0, 0.0, 1}%yellow/blue
+\definecolor{9}{rgb}{0.96, 0.0, 0.63}%bright green/magenta(fashionfuchsia)
+\definecolor{10}{rgb}{0.54, 0.17, 0.89}%blue-violet
 \definecolor{11}{rgb}{0.98, 0.85, 0.37}%jonquil
 \definecolor{12}{rgb}{0.93, 0.51, 0.93}%lavendermagenta
 \definecolor{13}{rgb}{0.15, 0.23, 0.89}%palatinateblue
-\definecolor{14}{rgb}{0.93, 0.35, 0.0}%persimmon
+\definecolor{14}{rgb}{0.6, 0.4, 0.99}%ugly green/nice lila
 \definecolor{15}{rgb}{0.8, 0.2, 0.2}%persianred
 \definecolor{16}{rgb}{0.11, 0.22, 0.73}%persianblue
 \definecolor{17}{rgb}{0.0, 0.65, 0.58}%persiangreen
 \definecolor{18}{rgb}{0.9, 0.89, 0.0}%persianyellow
+
 
 \definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
 \definecolor{azure}{rgb}{0.0, 0.5, 1.0}
@@ -78,11 +79,12 @@ tikz,tikz-cd}
 {.}% punctuation between head and body
 { }% space after theorem head; " " = normal interword space
 \fi
+
 \newtheoremstyle{c1}{}{1em}{}{}{\color{1}\bfseries}{}{1em}{}
-\newtheoremstyle{c2}{}{}{}{}{\color{2}\bfseries}{}{1em}{}
-\newtheoremstyle{c3}{}{}{}{}{\color{3}\bfseries}{}{1em}{}
-\newtheoremstyle{c4}{}{}{}{}{\color{4}\bfseries}{}{1em}{}
-\newtheoremstyle{c5}{}{}{}{}{\color{5}\bfseries}{}{1em}{}
+\newtheoremstyle{c2}{}{1em}{}{}{\color{2}\bfseries}{}{1em}{}
+\newtheoremstyle{c3}{}{1em}{}{}{\color{3}\bfseries}{}{1em}{}
+\newtheoremstyle{c4}{}{1em}{}{}{\color{4}\bfseries}{}{1em}{}
+\newtheoremstyle{c5}{}{1em}{}{}{\color{5}\bfseries}{}{1em}{}
 \newtheoremstyle{c6}{}{}{}{}{\color{6}\bfseries}{}{1em}{}
 \newtheoremstyle{c7}{}{}{}{}{\color{7}\bfseries}{}{1em}{}
 \newtheoremstyle{c8}{}{}{}{}{\color{8}\bfseries}{}{1em}{}
@@ -108,9 +110,6 @@ tikz,tikz-cd}
   {\end{genericthm*}}
 \fi
 
-\newcommand{\thistheoremname}{}
-\newtheorem*{genericthm*}{\thistheoremname}
-
 \iffalse
 %https://stackoverflow.com/questions/2561791/iteration-in-latex
 \usepackage{pgffor}
@@ -118,22 +117,32 @@ tikz,tikz-cd}
 \theoremstyle{c\n}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm\n*}{\thistheoremname}
-\newenvironment{idea\n}[1]
+\newenvironment{thing\n}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm\n*}}
   {\end{genericthm\n*}}
 }\fi
+\theoremstyle{plain}
+\newcommand{\thistheoremname}{}
 
 \theoremstyle{c1}
-\newenvironment{idea1}[1]
+\newtheorem*{genericthm1*}{\thistheoremname}
+\newenvironment{thing1}[1]
   {\renewcommand{\thistheoremname}{#1}%
-   \begin{genericthm*}}
-  {\end{genericthm*}}
+   \begin{genericthm1*}}
+  {\end{genericthm1*}}
+
+\theoremstyle{c1}
+\newtheorem*{genericthm0*}{\thistheoremname}
+\newenvironment{thing0}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm0*}}
+  {\end{genericthm0*}}
 
 \theoremstyle{c2}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm2*}{\thistheoremname}
-\newenvironment{idea2}[1]
+\newenvironment{thing2}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm2*}}
   {\end{genericthm2*}}
@@ -141,7 +150,7 @@ tikz,tikz-cd}
 \theoremstyle{c3}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm3*}{\thistheoremname}
-\newenvironment{idea3}[1]
+\newenvironment{thing3}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm3*}}
   {\end{genericthm3*}}
@@ -149,7 +158,7 @@ tikz,tikz-cd}
 \theoremstyle{c4}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm4*}{\thistheoremname}
-\newenvironment{idea4}[1]
+\newenvironment{thing4}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm4*}}
   {\end{genericthm4*}}
@@ -157,7 +166,7 @@ tikz,tikz-cd}
 \theoremstyle{c5}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm5*}{\thistheoremname}
-\newenvironment{idea5}[1]
+\newenvironment{thing5}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm5*}}
   {\end{genericthm5*}}
@@ -165,7 +174,7 @@ tikz,tikz-cd}
 \theoremstyle{c6}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm6*}{\thistheoremname}
-\newenvironment{idea6}[1]
+\newenvironment{thing6}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm6*}}
   {\end{genericthm6*}}
@@ -173,7 +182,7 @@ tikz,tikz-cd}
 \theoremstyle{c7}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm7*}{\thistheoremname}
-\newenvironment{idea7}[1]
+\newenvironment{thing7}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm7*}}
   {\end{genericthm7*}}
@@ -181,7 +190,89 @@ tikz,tikz-cd}
 \theoremstyle{c8}
 \renewcommand{\thistheoremname}{}
 \newtheorem*{genericthm8*}{\thistheoremname}
-\newenvironment{idea8}[1]
+\newenvironment{thing8}[1]
   {\renewcommand{\thistheoremname}{#1}%
    \begin{genericthm8*}}
-  {\end{genericthm8*}}
+  {\end{genericthm8*}}\theoremstyle{c8}
+\renewcommand{\thistheoremname}{}
+
+\theoremstyle{c9}
+\newtheorem*{genericthm9*}{\thistheoremname}
+\newenvironment{thing9}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm9*}}
+  {\end{genericthm9*}}
+
+\theoremstyle{c10}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm10*}{\thistheoremname}
+\newenvironment{thing10}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm10*}}
+  {\end{genericthm10*}}
+
+\theoremstyle{c11}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm11*}{\thistheoremname}
+\newenvironment{thing11}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm11*}}
+  {\end{genericthm11*}}
+
+\theoremstyle{c12}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm12*}{\thistheoremname}
+\newenvironment{thing12}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm12*}}
+  {\end{genericthm12*}}
+
+\theoremstyle{c13}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm13*}{\thistheoremname}
+\newenvironment{thing13}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm13*}}
+  {\end{genericthm13*}}
+
+\theoremstyle{c14}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm14*}{\thistheoremname}
+\newenvironment{thing14}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm14*}}
+  {\end{genericthm14*}}
+
+\theoremstyle{c15}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm15*}{\thistheoremname}
+\newenvironment{thing15}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm15*}}
+  {\end{genericthm15*}}
+
+\theoremstyle{c16}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm16*}{\thistheoremname}
+\newenvironment{thing16}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm16*}}
+  {\end{genericthm16*}}
+
+\theoremstyle{c17}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm17*}{\thistheoremname}
+\newenvironment{thing17}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm17*}}
+  {\end{genericthm17*}}
+
+\theoremstyle{c18}
+\renewcommand{\thistheoremname}{}
+\newtheorem*{genericthm18*}{\thistheoremname}
+\newenvironment{thing18}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm18*}}
+  {\end{genericthm18*}}
+
+

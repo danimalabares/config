@@ -1,0 +1,134 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+def tx():
+      return vim.eval('vimtex#syntax#in_mathzone()') == '0'
+endglobal
+
+
+priority 1
+context "math()"
+snippet GL "gl" iA
+\mathsf{GL}($1)
+endsnippet
+
+priority 2
+context "math()"
+snippet PGL "an operator" iA
+\mathsf{PGL}($1)
+endsnippet
+
+priority 1
+context "math()"
+snippet SO "so" iA
+\mathsf{SO}($1)
+endsnippet
+
+context "math()"
+snippet SP "so" iA
+\mathsf{Sp}($1)
+endsnippet
+
+context "math()"
+snippet Un "Unitary" iA
+\mathsf{U}($1)
+endsnippet
+
+context "math()"
+snippet Spin "spin" iA
+\mathsf{Spin}($1)
+endsnippet
+
+context "math()"
+snippet SU "special unitary" iA
+\mathsf{SU}($1)
+endsnippet
+
+context "math()"
+snippet Or "Orthogonal" iA
+\mathsf{O}($1)
+endsnippet
+
+context "math()"
+snippet On "Orthogonal" iA
+\mathsf{O}($1)
+endsnippet
+
+priority 1
+context "math()"
+snippet SL "SL" iA
+\mathsf{SL}($1)
+endsnippet
+
+priority 2
+context "math()"
+snippet PSL "SL" iA
+\mathsf{PSL}($1)
+endsnippet
+
+priority 2
+context "math()"
+snippet PSO "SL" iA
+\mathsf{PSO}($1)
+endsnippet
+
+
+priority 1
+context "math()"
+snippet hh "algebra de lie" iA
+\mathfrak{h}
+endsnippet
+
+context "math()"
+snippet gl "algebra de lie" iA
+\mathfrak{gl}($1)
+endsnippet
+
+context "math()"
+snippet gg "algebra de lie" iA
+\mathfrak{g}
+endsnippet
+
+context "math()"
+snippet on "algebra de lie" iA
+\mathfrak{o}($1)
+endsnippet
+
+context "math()"
+snippet sl "algebra de lie" iA
+\mathfrak{sl}($1)
+endsnippet
+
+context "math()"
+snippet so "algebra de lie" iA
+\mathfrak{so}($1)
+endsnippet
+
+context "math()"
+snippet sp "algebra de lie" iA
+\mathfrak{sp}($1)
+endsnippet
+
+context "math()"
+snippet Lie "lie algabra" iA
+\mathsf{Lie}$1
+endsnippet
+
+context "math()"
+snippet un "algebra de lie" iA
+\mathfrak{u}($1)
+endsnippet
+
+priority 10
+context "math()"
+snippet sun "algebra de lie" iA
+\mathfrak{su}($1)
+endsnippet
